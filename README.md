@@ -6,6 +6,7 @@ Repositório contendo o **TeamCode** do robô FTC, incluindo OpModes, subsistema
 
 ## Estrutura do Repositório
 
+``` bash
 TeamCode/
 ├── src/main/java/org/firstinspires/ftc/teamcode/
 │ ├── opmodes/ # OpModes (TeleOp e Autonomous)
@@ -14,6 +15,7 @@ TeamCode/
 │ └── constants/ # Constantes do robô (KPIs, limites de motores, etc.)
 ├── build.gradle
 └── README.md
+```
 
 ---
 
