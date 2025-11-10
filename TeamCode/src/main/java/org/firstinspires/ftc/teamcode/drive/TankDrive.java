@@ -40,7 +40,13 @@ public class TankDrive {
         leftMotor.setPower(-output);
     }
 
-    public String getTankDrivePower() {
-        return "Left: " + leftMotor.getPower() + " | Right: " + rightMotor.getPower();
+    public void setTankDriveDirection(boolean direction) {
+        if(direction) {
+            rightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+            leftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        } else {
+            rightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+            leftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        }
     }
 }
