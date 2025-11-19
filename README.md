@@ -74,5 +74,7 @@ Este projeto foi criado para ser reutilizado e expandido por futuras gerações 
 ## Créditos
 
 Equipe IRONHIDE #26956 - Decode 2025-2026
+
 Programação: Equipe de Software
+
 Líder de Programação: [**Daniel**](https://github.com/nielzgt)
