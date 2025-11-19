@@ -8,6 +8,9 @@ O robô SCORPION foi projetado para oferecer desempenho consistente em movimenta
 ## Organização do Projeto
 
 ``` bash
+MeepMeep/
+├── src/main/java/br/com/user/meepmeep/
+│   ├── MeepMeepTesting/            → Simulador de trajetórias Road Runner
 TeamCode/
 ├── src/main/java/org/firstinspires/ftc/teamcode/
 │   ├── drive/                      → Controle básico de movimentação
@@ -15,8 +18,34 @@ TeamCode/
 │   │   ├── auto/                   → Modos autônomos
 │   │   └── teleop/                 → Modos de teleoperação
 │   ├── subsystems/                 → Controle dos subsistemas do robô
-│   └── util/                       → Auxiliar valores do PID, ângulos, etc
+│   ├── tuning/                     → Ajustar valores do Road Runner
 ```
+
+---
+
+## Road Runner – Navegação Avançada
+
+O SCORPION utiliza Road Runner para:
+- Controle preciso de trajetórias durante o autônomo
+- Movimentação suave com perfis de velocidade e aceleração
+- Ajustes finos por meio de feedforward e localizer
+- Rotinas independentes para diferentes lados do campo
+
+---
+
+## MeepMeep – Simulação de Trajetórias
+
+O diretório `meepmeep/` contém um projeto separado usado para:
+- Simular e visualizar rotas do Road Runner
+- Testar autônomos rapidamente sem usar o robô
+- Validar movimentos como "strafe", curvas e splines
+- Ajustar posições iniciais e finais antes de portar para o FTC SDK
+
+Vantagens:
+- Rápido de testar
+- Não gasta bateria do robô
+- Evita colisões e imprecisões durante ajustes iniciais
+- Ajuda a equipe a visualizar estratégias antes da etapa de programação
 
 ---
 
@@ -25,20 +54,25 @@ TeamCode/
 Cada subsistema do robô é independente e pode ser testado ou reutilizado separadamente.
 Isso facilita o desenvolvimento em equipe e a manutenção do código.
 
-| Pacote | Função |
-|:-------|:--------|
-| `drive` | Controle dos motores principais |
-| `opmodes` | Lógica de teleop e autônomo |
+| Pacote       | Função |
+|:-------------|:--------|
+| `drive`      | Controle dos motores principais |
+| `opmodes`    | Lógica de teleop e autônomo |
 | `subsystems` | Componentes físicos (Shooter, Intake etc.) |
-| `util` | Funções auxiliares (PID, constantes, etc.) |
+| `meepmeep`   | Projeto usado para simulação e pré-visualização |
 
 ---
 
 ## Continuidade
 
-Este projeto é de uso livre para fins educacionais e competitivos na FTC
-A documentação é passada para cada geração da equipe, garantindo continuidade e qualidade
+Este projeto foi criado para ser reutilizado e expandido por futuras gerações da equipe IRONHIDE, oferecendo:
+- Código limpo e estruturado
+- Documentação clara
+- Padrões de projeto consistentes
+- Base de desenvolvimento para temporadas futuras
 
 ## Créditos
 
 Equipe IRONHIDE #26956 - Decode 2025-2026
+Programação: Equipe de Software
+Líder de Programação: [**Daniel**](https://github.com/nielzgt)
