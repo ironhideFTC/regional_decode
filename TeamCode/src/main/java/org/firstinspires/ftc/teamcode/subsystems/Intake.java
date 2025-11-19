@@ -2,27 +2,36 @@ package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Intake {
-    private DcMotor intakeMotor;
+    private DcMotor motor;
+    private boolean active = false;
 
-    public void init(HardwareMap hardwareMap) {
-        intakeMotor = hardwareMap.get(DcMotor.class, "intake");
-        intakeMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        intakeMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        intakeMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    public void init(HardwareMap hw) {
+        motor = hw.get(DcMotor.class, "intake");
+        motor.setDirection(DcMotorSimple.Direction.FORWARD);
+        motor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        motor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        this.stop();
     }
 
-    public void setIntakePower(double intakePower) {
-        intakeMotor.setPower(intakePower);
+    public void toggle() {
+        active = !active;
+        if (active) this.start();
+        else this.stop();
     }
 
-    public void stopIntake() {
-        intakeMotor.setPower(0);
+    public void start() { motor.setPower(1); }
+    public void stop()  { motor.setPower(0); }
+
+    public boolean isActive() { return active; }
+
+    public void update(Gamepad gp) {
+        if (gp.right_bumper && !lastRb) this.toggle();
+        lastRb = gp.right_bumper;
     }
 
-    public double getIntakePower() {
-        return intakeMotor.getPower();
-    }
+    private boolean lastRb = false;
 }
