@@ -1,15 +1,19 @@
 package org.firstinspires.ftc.teamcode.drive;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+
 public class TankDrive {
-    private DcMotor right, left;
+    private DcMotorEx right, left;
 
     public void init(HardwareMap hw) {
-        right = hw.get(DcMotor.class, "right");
-        left = hw.get(DcMotor.class, "left");
+        right = hw.get(DcMotorEx.class, "right");
+        left = hw.get(DcMotorEx.class, "left");
 
         right.setDirection(DcMotorSimple.Direction.FORWARD);
         left.setDirection(DcMotorSimple.Direction.REVERSE);

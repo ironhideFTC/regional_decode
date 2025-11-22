@@ -1,16 +1,20 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.external.navigation.CurrentUnit;
+
 public class Shooter {
-    private DcMotor motor;
+    private DcMotorEx motor;
     private boolean active = false;
 
     public void init(HardwareMap hw) {
-        motor = hw.get(DcMotor.class, "shooter");
+        motor = hw.get(DcMotorEx.class, "shooter");
         motor.setDirection(DcMotorSimple.Direction.REVERSE);
         motor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -25,7 +29,7 @@ public class Shooter {
 
     public void toggleLow() {
         active = !active;
-        if (active) motor.setPower(0.8);
+        if (active) motor.setPower(0.9);
         else this.stop();
     }
 

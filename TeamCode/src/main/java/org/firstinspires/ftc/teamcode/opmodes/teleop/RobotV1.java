@@ -38,8 +38,8 @@ public class RobotV1 extends OpMode {
 
         telemetry.addData("Intake", intake.isActive());
         telemetry.addData("Shooter", shooter.isActive());
-        telemetry.addData("Impulse", impulse.isActive());
-        telemetry.addData("Impulse Pos", impulse.getPosition());
+        telemetry.addData("Impulse Intake", impulse.getPosition1());
+        telemetry.addData("Impulse Shooter", impulse.getPosition2());
         telemetry.update();
     }
 
